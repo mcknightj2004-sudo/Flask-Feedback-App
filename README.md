@@ -1,4 +1,4 @@
-# Comment Manager (Flask)
+# Comment Feedback (Flask)
 
 Flask + SQLite app to store and manage comments (filter, add, edit, delete).
 Data can be loaded from `comments.csv` into the database.
