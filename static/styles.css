@@ -1,0 +1,258 @@
+/* root variables (colours, design n stuff) */
+
+:root {
+  /* main colours */
+  --bg: #eae1f5;
+  --card: #ffffff;
+  --muted: #494949;
+  --fg: #111827;
+  --accent: #2563eb;
+
+  /* borders and radius */
+  --border: #e5e7eb;
+  --radius: 12px;
+
+  /* shadow */
+  --shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+/* global page styling - below */
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+}
+
+.container {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* titles and text */
+.title { font-size: 28px; margin: 0; font-weight: 700; letter-spacing: 0.2px; }
+.section-title { margin: 0 0 12px 0; font-size: 18px; }
+.muted { color: var(--muted); }
+.mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+
+/* padding */
+.py-3 { padding-top: 16px; padding-bottom: 16px; }
+.py-6 { padding-top: 32px; padding-bottom: 32px; }
+
+/* boxes around sections */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: var(--shadow);
+}
+
+/* grid layout */
+.grid { display: grid; }
+.grid-3 { grid-template-columns: 1fr 200px 120px; }
+.gap-2 { gap: 12px; }
+
+@media (max-width: 640px) {
+  .grid-3 { grid-template-columns: 1fr; }
+}
+
+/* inputs and buttons */
+.input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--fg);
+  border-radius: 10px;
+  outline: none;
+}
+
+.input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+/* main blue button */
+.btn {
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: var(--accent);
+  color: white;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn:hover { filter: brightness(1.1); }
+
+/* edit + delete button */
+.btn-edit {
+  background: #facc15;
+  color: #111;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-delete {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-edit:hover { filter: brightness(1.05); }
+.btn-delete:hover { filter: brightness(1.1); }
+
+/*table styling and formatting*/
+.table-wrap {
+  overflow: auto;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+thead th {
+  background: #f1f5f9;
+  padding: 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+tbody td {
+  padding: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+tbody tr:hover { background: #f8fafc; }
+
+/* Spelling / Structure / Terminology pill layout styling*/
+.pill {
+  /* always to start with a capital letter */
+  text-transform: capitalize;
+
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* blue for spelling */
+.pill.spelling {
+  background: #dbeafe;
+  color: #1e40af;
+  border-color: #a5d8ff;
+}
+
+/* yellow for structure */
+.pill.structure {
+  background: #fef9c3;
+  color: #92400e;
+  border-color: #fde68a;
+}
+
+/* green for terminology */
+.pill.terminology {
+  background: #dcfce7;
+  color: #166534;
+  border-color: #a3e635;
+}
+
+/*messages - success / warning / error */
+.flash { list-style: none; margin: 0 0 16px 0; padding: 0; }
+
+.flash-item {
+  padding: 10px 12px;
+  border-radius: 10px;
+  margin: 8px 0;
+  border: 1px solid var(--border);
+  background: #f9fafb;
+}
+
+.flash-item.success { border-color: #a7f3d0; background: #ecfdf5; }
+.flash-item.warn    { border-color: #fde68a; background: #fffbeb; }
+.flash-item.error   { border-color: #fecaca; background: #fef2f2; }
+
+
+/*better looking edit and delete buttons*/
+
+.action-buttons {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-start;
+}
+
+.btn-edit,
+.btn-delete {
+  padding: 6px 14px;
+  border-radius: 8px;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+/* Edit button */
+.btn-edit {
+  background: #3b82f6;
+  color: white;
+}
+.btn-edit:hover {
+  background: #2563eb;
+}
+
+/* Delete button */
+.btn-delete {
+  background: #ef4444;
+  color: white;
+}
+.btn-delete:hover {
+  background: #dc2626;
+}
+.action-buttons {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+
+/*success and eroor messages*/
+.toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 12px 18px;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+    z-index: 9999;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.toast.success { background-color: #4CAF50; }  
+.toast.error { background-color: #d9534f; }    
+.hidden { display: none; }

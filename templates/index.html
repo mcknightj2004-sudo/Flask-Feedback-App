@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="card">
+  <h2 class="section-title">Add a comment</h2>
+  <form id="addCommentForm" class="grid grid-3 gap-2" novalidate>
+  <select name="type" class="input" required>
+    <option value="" disabled selected>Select type…</option>
+    <option value="spelling">Spelling</option>
+    <option value="structure">Structure</option>
+    <option value="terminology">Terminology</option>
+  </select>
+
+  <input class="input" type="text" name="text" placeholder="Write the comment text…" required maxlength="500" autocomplete="off">
+
+  <button class="btn">Add</button>
+</form>
+</section>
+
+<section class="card">
+  <h2 class="section-title">Filter Comments by Type</h2>
+
+  <form id="filterForm" method="get" class="grid grid-3 gap-2" novalidate>
+    <select name="type" class="input">
+      <option value="">All types</option>
+      <option value="spelling" {{ "selected" if ctype=="spelling" else "" }}>Spelling</option>
+      <option value="structure" {{ "selected" if ctype=="structure" else "" }}>Structure</option>
+      <option value="terminology" {{ "selected" if ctype=="terminology" else "" }}>Terminology</option>
+    </select>
+
+    <button class="btn">Filter</button>
+  </form>
+</section>
+
+<section class="card">
+  <h2 class="section-title">All comments</h2>
+  <div class="table-wrap">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Type</th>
+          <th>Comment</th>
+          <th>Severity</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="commentsTable">
+        <tr><td colspan="4" class="muted">Loading comments…</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<script src="{{ url_for('static', filename='script.js') }}" defer></script>
+{% endblock %}
+
+
