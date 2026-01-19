@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CW2 Feedback Comments</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  </head>
+  <body>
+    <header class="container py-3">
+      <h1 class="title">Feedback Comments System</h1>
+      <p class="muted">Structure - Terminology - Spelling*</p>
+    </header>
+
+    <main class="container">
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <ul class="flash" aria-live="polite" aria-atomic="true">
+          {% for category, msg in messages %}
+            <li class="flash-item {{ category }}">{{ msg }}</li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      {% endwith %}
+      {% block content %}{% endblock %}
+    </main>
+
+  <div id="toast" class="toast hidden"></div>
+
+    <footer class="container muted py-6">
+      <small>Flask + SQLAlchemy Feedback App — Demo Build - CW2</small>
+    </footer>
+  </body>
+</html>
+
